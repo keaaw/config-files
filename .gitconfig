@@ -8,3 +8,5 @@
 	ui = true
 [push]
 	default = tracking
+[core]
+	excludesfile = /Users/kmw-solutions/.gitignore_global
