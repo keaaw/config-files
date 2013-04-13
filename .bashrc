@@ -49,6 +49,12 @@ alias gaup="git add -u permalink ; gs"
 alias gaupp="git add -u pp ; gs"
 alias gauppp="git add -u pp permalink ; gs"
 alias gcm="git commit -m "
+alias gl="git log --graph --full-history --all --color --decorate  --oneline"
+
+# "home directory git" -- config-files repository
+#
+alias hmg='git --git-dir=$HOME/.config-files.git/ --work-tree=$HOME'
+alias hgl="hmg log --graph --full-history --all --color --decorate  --oneline"
 
 alias sd='swfdump --full'
 alias sm='swfmill swf2xml'
