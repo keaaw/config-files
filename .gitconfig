@@ -1,0 +1,10 @@
+[user]
+	name = Ken Whaley
+	email = ken@toptal.com
+[github]
+	user = keaaw
+	token = 039caa51806af501242c01669743d732
+[color]
+	ui = true
+[push]
+	default = tracking
