@@ -1,3 +1,5 @@
 export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 
-export tt=~/gitrepos/work/tt/keaaw-toptal
+export ToptalGitRoot=~/gitrepos/work/tt
+export tgr=$ToptalGitRoot
+export tt=$tgr/toptal
