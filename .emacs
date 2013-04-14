@@ -237,8 +237,16 @@ Goes backward if ARG is negative; error if CHAR not found."
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
+(autoload 'markdown-mode "markdown-mode.el" 
+	"Major mode for editing Markdown files" t)
 
+(setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
+(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -256,7 +264,3 @@ Goes backward if ARG is negative; error if CHAR not found."
   ;; If there is more than one, they won't work right.
  )
 
-(autoload 'markdown-mode "markdown-mode.el" 
-	"Major mode for editing Markdown files" t)
-
-(setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
