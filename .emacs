@@ -244,9 +244,19 @@ Goes backward if ARG is negative; error if CHAR not found."
 
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
+
+(autoload 'haml-mode "haml-mode.el" 
+	"Major mode for editing HAML files" t)
+(add-to-list 'auto-mode-alist '("\\.haml\\'" . haml-mode))
+(add-hook 'haml-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (define-key haml-mode-map "\C-m" 'newline-and-indent)))
+
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
