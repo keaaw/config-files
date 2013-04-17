@@ -67,6 +67,7 @@
 (global-set-key " " 	 'set-mark-command)
 (global-set-key "\C-cr"  'comment-region)
 (global-set-key "\C-cu"  'uncomment-region)
+(global-set-key (kbd "C-c d") 'insert-date)
 
 ;; set up org mode
 ;;
@@ -256,6 +257,20 @@ Goes backward if ARG is negative; error if CHAR not found."
           (lambda ()
             (setq indent-tabs-mode nil)
             (define-key haml-mode-map "\C-m" 'newline-and-indent)))
+
+
+
+(defun insert-date (prefix)
+  "Insert the current date. With prefix-argument, use ISO format. With
+   two prefix arguments, write out the day and month name."
+  (interactive "P")
+  (let ((format (cond
+                 ((not prefix) "%d.%m.%Y")
+                 ((equal prefix '(4)) "%Y-%m-%d")
+                 ((equal prefix '(16)) "%A, %d. %B %Y")))
+        (system-time-locale "en_EN"))
+    (insert (format-time-string format))))
+
 
 
 (custom-set-variables
