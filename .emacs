@@ -289,3 +289,4 @@ Goes backward if ARG is negative; error if CHAR not found."
   ;; If there is more than one, they won't work right.
  )
 
+(set-cursor-color "red")
