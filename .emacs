@@ -238,7 +238,7 @@ Goes backward if ARG is negative; error if CHAR not found."
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
-(autoload 'markdown-mode "markdown-mode.el" 
+(autoload 'markdown-mode "markdown-mode.el"
 	"Major mode for editing Markdown files" t)
 
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
@@ -250,7 +250,7 @@ Goes backward if ARG is negative; error if CHAR not found."
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
 
-(autoload 'haml-mode "haml-mode.el" 
+(autoload 'haml-mode "haml-mode.el"
 	"Major mode for editing HAML files" t)
 (add-to-list 'auto-mode-alist '("\\.haml\\'" . haml-mode))
 (add-hook 'haml-mode-hook
@@ -271,7 +271,22 @@ Goes backward if ARG is negative; error if CHAR not found."
         (system-time-locale "en_EN"))
     (insert (format-time-string format))))
 
+(add-hook 'before-save-hook 'my-before-save-hook)
 
+(defun my-before-save-hook ()
+  (delete-trailing-whitespace)
+  (my-delete-trailing-blank-lines))
+
+(defun my-delete-trailing-blank-lines ()
+  "Deletes all blank lines at the end of the file."
+  (interactive)
+  (save-excursion
+    (save-restriction
+      (widen)
+      (goto-char (point-max))
+      (delete-blank-lines))))
+
+(set-cursor-color "red")
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -288,5 +303,3 @@ Goes backward if ARG is negative; error if CHAR not found."
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
-
-(set-cursor-color "red")
