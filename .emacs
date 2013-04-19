@@ -27,6 +27,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
+
 ;; ... except you DO want tabs in Makefiles, of course
 ;; makefile mode stuff -- use tabs in Makefiles
 ;;
@@ -40,6 +41,9 @@
 (display-time)
 (column-number-mode t)
 (setq case-fold-search t)
+
+;; tabs BAD
+(setq indent-tabs-mode nil)
 
 ;; Don't want to add newlines to the end of a buffer.
 ;;
@@ -237,6 +241,14 @@ Goes backward if ARG is negative; error if CHAR not found."
   )
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+
+
+
+(add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
+(defun my-ruby-mode-hook ()
+  (setq indent-tabs-mode nil)
+  (setq tab-width 2))
+
 
 (autoload 'markdown-mode "markdown-mode.el"
 	"Major mode for editing Markdown files" t)
