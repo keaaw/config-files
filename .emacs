@@ -300,6 +300,16 @@ Goes backward if ARG is negative; error if CHAR not found."
 
 (set-cursor-color "red")
 
+;; run multi-occur-in-matching-buffers conveniently
+;;
+(defun my-multi-occur-in-matching-buffers (regexp &optional allbufs)
+  "Show all lines matching REGEXP in all buffers."
+  (interactive (occur-read-primary-args))
+  (multi-occur-in-matching-buffers ".*" regexp))
+(global-set-key (kbd "M-s /") 'my-multi-occur-in-matching-buffers)
+
+
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
