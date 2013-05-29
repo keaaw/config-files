@@ -35,6 +35,8 @@ export TINYSCHEMEINIT=/Users/kmw-solutions/nobackup/tinyscheme-1.40/init.scm
 
 alias soc='source ~/.bashrc'
 alias h='history'
+alias hg="history | grep "
+alias ht="history | tail"
 alias up="cd .."
 alias ll="ls -l"
 alias ltr="ls -ltr"
@@ -49,6 +51,7 @@ alias gaup="git add -u permalink ; gs"
 alias gaupp="git add -u pp ; gs"
 alias gauppp="git add -u pp permalink ; gs"
 alias gcm="git commit -m "
+alias gcam="git commit -a -m "
 alias gl="git log --graph --full-history --all --color --decorate  --oneline"
 
 # "home directory git" -- config-files repository
